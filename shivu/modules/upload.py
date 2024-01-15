@@ -105,7 +105,7 @@ async def sdelete(update: Update, context: CallbackContext) -> None:
     except Exception as e:
         await update.message.reply_text(f'{str(e)}')
 
-async def update(update: Update, context: CallbackContext) -> None:
+async def supdate(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in sudo_users:
         await update.message.reply_text('You do not have permission to use this command.')
         return
@@ -167,9 +167,10 @@ async def update(update: Update, context: CallbackContext) -> None:
     except Exception as e:
         await update.message.reply_text(f'I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id')
 
-UPLOAD_HANDLER = CommandHandler('upload', upload, block=False)
+UPLOAD_HANDLER = CommandHandler('upload', supload, block=False)
 application.add_handler(UPLOAD_HANDLER)
-DELETE_HANDLER = CommandHandler('delete', delete, block=False)
+DELETE_HANDLER = CommandHandler('delete', sdelete, block=False)
 application.add_handler(DELETE_HANDLER)
-UPDATE_HANDLER = CommandHandler('update', update, block=False)
+UPDATE_HANDLER = CommandHandler('update', supdate, block=False)
 application.add_handler(UPDATE_HANDLER)
+

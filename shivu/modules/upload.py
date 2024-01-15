@@ -167,10 +167,11 @@ async def supdate(update: Update, context: CallbackContext) -> None:
     except Exception as e:
         await update.message.reply_text(f'I guess did not added bot in channel.. or character uploaded Long time ago.. Or character not exits.. orr Wrong id')
 
-UPLOAD_HANDLER = CommandHandler('upload', supload, block=False)
-application.add_handler(UPLOAD_HANDLER)
-DELETE_HANDLER = CommandHandler('delete', sdelete, block=False)
-application.add_handler(DELETE_HANDLER)
-UPDATE_HANDLER = CommandHandler('update', supdate, block=False)
-application.add_handler(UPDATE_HANDLER)
+
+SUPLOAD_HANDLER = CommandHandler('supload', supload, block=False)
+application.add_handler(SUPLOAD_HANDLER)
+SDELETE_HANDLER = CommandHandler('sdelete', sdelete, block=False)
+application.add_handler(SDELETE_HANDLER)
+SUPDATE_HANDLER = CommandHandler('supdate', supdate, block=False)
+application.add_handler(SUPDATE_HANDLER)
 
